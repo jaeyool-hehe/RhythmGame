@@ -6,9 +6,13 @@ GRAY = (115, 115, 115)
 RED = (255, 0, 0)
 
 
-BUTTON_FONT = "deltarune"
-# LOGO_FONT = "deltarune"
+
+# TODO refactor
 LOGO_FONT = "gothicpixels"
+# pygame.font.SysFont("gothicpixels", 50)
+BUTTON_FONT = "deltarune"
+# pygame.font.SysFont("deltarune", 20)
+
 
 
 did_player_win_or_lose = "Lose"
