@@ -9,11 +9,11 @@ class MainMenu:
        self.screen_manager = screen_manager
        self.play_btn = pygame.Rect(550, 200, 100, 50)
        self.exit_btn = pygame.Rect(550, 300, 100, 50)
-       self.main_text_font = pygame.font.SysFont("gothicpixels", 50)
-       self.font = pygame.font.SysFont("gothicpixels", 20)
+       self.main_text_font = pygame.font.SysFont(Variables.LOGO_FONT, 50)
+       self.font = pygame.font.SysFont(Variables.BUTTON_FONT, 20)
 
 
-   def update(self, events):
+   def update(self, screen, events):
        for e in events:
            if e.type == pygame.KEYDOWN:
                if e.key == pygame.K_s: self.screen_manager.switch("play")

@@ -8,12 +8,12 @@ class VictoryOrLoseScreen:
    def __init__(self, screen_manager):
        self.screen_manager = screen_manager
        self.go_back_btn = pygame.Rect(550, 700, 100, 50)
-       self.main_text_font = pygame.font.SysFont("gothicpixels", 50)
-       self.font = pygame.font.SysFont("gothicpixels", 20)
+       self.main_text_font = pygame.font.SysFont(Variables.LOGO_FONT, 50)
+       self.font = pygame.font.SysFont(Variables.BUTTON_FONT, 20)
        self.txt = self.main_text_font.render("Victory", True, Variables.WHITE)
 
 
-   def update(self, events):
+   def update(self, screen, events):
        for e in events:
            if e.type == pygame.KEYDOWN:
                if e.key == pygame.K_s: self.screen_manager.switch("level_select")

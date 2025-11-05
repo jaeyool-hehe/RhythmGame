@@ -5,6 +5,7 @@ from UI.main_menu_screen import MainMenu
 from UI.game_screen import GameScreen
 from UI.level_select_screen import LevelSelectScreen
 from UI.victory_or_lose_screen import VictoryOrLoseScreen
+from UI.pause_screen import PauseScreen
 
 # TODO
 # We need 5 screens
@@ -19,7 +20,6 @@ print(pygame.font.get_fonts())
 screen = pygame.display.set_mode((1200, 800))
 clock = pygame.time.Clock()
 
-
 # Create MenuBase (composition)
 screen_manager = ScreenManager()
 
@@ -28,22 +28,21 @@ main_menu_screen = MainMenu(screen_manager)
 game_screen = GameScreen(screen_manager)
 level_select_screen = LevelSelectScreen(screen_manager)
 victory_or_end = VictoryOrLoseScreen(screen_manager)
+pause = PauseScreen(screen_manager)
 
 # Set sub-menus in MenuBase
-screen_manager.set_menus(main_menu_screen, level_select_screen, game_screen, victory_or_end)
-
+screen_manager.set_menus(main_menu_screen, level_select_screen, game_screen, victory_or_end, pause)
 
 # Main loop
 while True:
-   events = pygame.event.get()
-   for e in events:
-       if e.type == pygame.QUIT:
-           pygame.quit()
-           sys.exit()
+    events = pygame.event.get()
+    for e in events:
+        if e.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
 
-   screen_manager.current_screen_update(events)
-   screen_manager.current_screen_draw(screen)
+    screen_manager.current_screen_update(screen, events)
+    screen_manager.current_screen_draw(screen)
 
-
-   pygame.display.flip()
-   clock.tick(60)
+    pygame.display.flip()
+    clock.tick(60)
