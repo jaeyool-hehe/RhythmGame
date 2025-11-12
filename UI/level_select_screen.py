@@ -19,39 +19,6 @@ class LevelSelectScreen:
 
     def update(self, events):
 
-        if Variables.unlocked_until_this_level == 1:
-            self.level_1_button_color = Variables.WHITE
-            self.level_2_button_color = Variables.GRAY
-            self.level_3_button_color = Variables.GRAY
-            self.level_4_button_color = Variables.GRAY
-            self.level_5_button_color = Variables.GRAY
-
-        elif Variables.unlocked_until_this_level == 2:
-            self.level_1_button_color = Variables.WHITE
-            self.level_2_button_color = Variables.WHITE
-            self.level_3_button_color = Variables.GRAY
-            self.level_4_button_color = Variables.GRAY
-            self.level_5_button_color = Variables.GRAY
-        elif Variables.unlocked_until_this_level == 3:
-            self.level_1_button_color = Variables.WHITE
-            self.level_2_button_color = Variables.WHITE
-            self.level_3_button_color = Variables.WHITE
-            self.level_4_button_color = Variables.GRAY
-            self.level_5_button_color = Variables.GRAY
-        elif Variables.unlocked_until_this_level == 4:
-            self.level_1_button_color = Variables.WHITE
-            self.level_2_button_color = Variables.WHITE
-            self.level_3_button_color = Variables.WHITE
-            self.level_4_button_color = Variables.WHITE
-            self.level_5_button_color = Variables.GRAY
-        elif Variables.unlocked_until_this_level == 5:
-            self.level_1_button_color = Variables.WHITE
-            self.level_2_button_color = Variables.WHITE
-            self.level_3_button_color = Variables.WHITE
-            self.level_4_button_color = Variables.WHITE
-            self.level_5_button_color = Variables.WHITE
-
-
 
         for e in events:
             if e.type == pygame.KEYDOWN and e.key == pygame.K_m:
@@ -63,40 +30,16 @@ class LevelSelectScreen:
 
                 if self.level_1_out_line_button.collidepoint(e.pos):
                     Variables.selected_level = 1
-                    self.level_1_button_color = Variables.RED
-
-
                 if self.level_2_out_line_button.collidepoint(e.pos):
                     Variables.selected_level = 2
-                    self.level_2_button_color = Variables.RED
-
-
                 if self.level_3_out_line_button.collidepoint(e.pos):
                     Variables.selected_level = 3
-                    self.level_3_button_color = Variables.RED
-
-                    self.level_1_button_color = Variables.WHITE
-                    self.level_2_button_color = Variables.WHITE
-                    self.level_4_button_color = Variables.WHITE
-                    self.level_5_button_color = Variables.WHITE
 
                 if self.level_4_out_line_button.collidepoint(e.pos):
                     Variables.selected_level = 4
-                    self.level_4_button_color = Variables.RED
-
-                    self.level_1_button_color = Variables.WHITE
-                    self.level_2_button_color = Variables.WHITE
-                    self.level_3_button_color = Variables.WHITE
-                    self.level_5_button_color = Variables.WHITE
 
                 if self.level_5_out_line_button.collidepoint(e.pos):
                     Variables.selected_level = 5
-                    self.level_5_button_color = Variables.RED
-
-                    self.level_1_button_color = Variables.WHITE
-                    self.level_2_button_color = Variables.WHITE
-                    self.level_3_button_color = Variables.WHITE
-                    self.level_4_button_color = Variables.WHITE
 
                 if self.continue_button.collidepoint(e.pos) and Variables.selected_level:
                     self.screen_manager.switch("game")
@@ -111,11 +54,27 @@ class LevelSelectScreen:
         pygame.draw.rect(screen, Variables.WHITE, self.main_btn, border_radius=20, width=2)
         pygame.draw.rect(screen, Variables.WHITE, self.continue_button, border_radius=20, width=2)
 
-        pygame.draw.rect(screen, self.level_1_button_color, self.level_1_out_line_button, border_radius=20, width=2)
-        pygame.draw.rect(screen, self.level_2_button_color, self.level_2_out_line_button, border_radius=20, width=2)
-        pygame.draw.rect(screen, self.level_3_button_color, self.level_3_out_line_button, border_radius=20, width=2)
-        pygame.draw.rect(screen, self.level_4_button_color, self.level_4_out_line_button, border_radius=20, width=2)
-        pygame.draw.rect(screen, self.level_5_button_color, self.level_5_out_line_button, border_radius=20, width=2)
+        # TODO MAKE IT SO YOU CAN'T SELECT GRAYED OUT BUTTONS
+        def get_level_color(level):
+            if Variables.selected_level == level:
+                return Variables.RED
+            elif Variables.unlocked_until_this_level >= level:
+                return Variables.WHITE
+            else:
+                return Variables.GRAY
+
+        color1 = get_level_color(1)
+        color2 = get_level_color(2)
+        color3 = get_level_color(3)
+        color4 = get_level_color(4)
+        color5 = get_level_color(5)
+
+
+        pygame.draw.rect(screen, color1, self.level_1_out_line_button, border_radius=20, width=2)
+        pygame.draw.rect(screen, color2, self.level_2_out_line_button, border_radius=20, width=2)
+        pygame.draw.rect(screen, color3, self.level_3_out_line_button, border_radius=20, width=2)
+        pygame.draw.rect(screen, color4, self.level_4_out_line_button, border_radius=20, width=2)
+        pygame.draw.rect(screen, color5, self.level_5_out_line_button, border_radius=20, width=2)
 
         screen.blit(Variables.BUTTON_FONT.render("Main Menu", True, Variables.WHITE), (self.main_btn.x + 19, self.main_btn.y + 15))
         screen.blit(Variables.BUTTON_FONT.render("Continue", True, Variables.WHITE), (self.continue_button.x + 19, self.continue_button.y + 15))
