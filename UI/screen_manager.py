@@ -1,4 +1,4 @@
-
+import Variables
 from UI.main_menu_screen import MainMenu
 from UI.game_screen import GameScreen
 from UI.level_select_screen import LevelSelectScreen
@@ -17,7 +17,15 @@ class ScreenManager:
 
 
     def switch(self, name):
-        if name == "play":
+        if name == "level":
+            Variables.selected_level = None
+            self.level_select.level_1_button_color = Variables.WHITE
+            self.level_select.level_2_button_color = Variables.WHITE
+            self.level_select.level_3_button_color = Variables.WHITE
+            self.level_select.level_4_button_color = Variables.WHITE
+            self.level_select.level_5_button_color = Variables.WHITE
+
+
             self.current = self.level_select
         elif name == "main":
             self.current = self.main
@@ -30,8 +38,8 @@ class ScreenManager:
         else:
             raise Exception("This screen doesn't exist")
 
-    def current_screen_update(self, screen, events):
-        self.current.update(screen, events)
+    def current_screen_update(self, events):
+        self.current.update(events)
 
     def current_screen_draw(self, screen):
         self.current.draw(screen)

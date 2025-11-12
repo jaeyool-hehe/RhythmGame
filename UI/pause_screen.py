@@ -8,10 +8,8 @@ class PauseScreen:
 
         self.go_back_btn = pygame.Rect(500, 500, 100, 50)
 
-        self.font = pygame.font.SysFont(Variables.BUTTON_FONT, 20)
-        self.game_menu_text_font = pygame.font.SysFont(Variables.LOGO_FONT, 50)
 
-    def update(self, screen, events):
+    def update(self, events):
         for e in events:
             if e.type == pygame.KEYDOWN:
                 if e.key == pygame.K_m:
@@ -25,5 +23,5 @@ class PauseScreen:
 
         pygame.draw.rect(screen, Variables.WHITE, self.go_back_btn, border_radius=20, width=2)
 
-        screen.blit(self.game_menu_text_font.render("Paused", True, Variables.WHITE), (450, 100))
-        screen.blit(self.font.render("Go back", True, Variables.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))
+        screen.blit(Variables.LOGO_FONT.render("Paused", True, Variables.WHITE), (450, 100))
+        screen.blit(Variables.BUTTON_FONT.render("Go back", True, Variables.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))
