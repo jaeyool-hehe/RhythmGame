@@ -19,6 +19,16 @@ class VictoryOrLoseScreen:
                 if self.go_back_btn.collidepoint(e.pos):
                     self.screen_manager.switch("level")
 
+        if Variables.did_player_win_or_lose == "Win":
+            if Variables.selected_level == 1 and Variables.unlocked_until_this_level == 1:
+                Variables.unlocked_until_this_level = 2
+            elif Variables.selected_level == 2 and Variables.unlocked_until_this_level == 2:
+                Variables.unlocked_until_this_level = 3
+            elif Variables.selected_level == 3 and Variables.unlocked_until_this_level == 3:
+                Variables.unlocked_until_this_level = 4
+            elif Variables.selected_level == 4 and Variables.unlocked_until_this_level == 4:
+                Variables.unlocked_until_this_level = 5
+
     def draw(self, screen):
         screen.fill(Variables.BLACK)
 
