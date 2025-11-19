@@ -15,9 +15,15 @@ BUTTON_FONT =  None
 
 def initFonts():
     global LOGO_FONT, BUTTON_FONT
-    LOGO_FONT = pygame.font.SysFont("gothicpixels", 50)
-    BUTTON_FONT = pygame.font.SysFont("deltarune", 20)
+    # LOGO_FONT = pygame.font.SysFont("gothicpixels", 50)
+    # BUTTON_FONT = pygame.font.SysFont("deltarune", 20)
 
+    # LOGO_FONT = pygame.font.SysFont("deltarune", 75)
+    # BUTTON_FONT = pygame.font.SysFont("deltarune", 20)
+
+    LOGO_FONT = pygame.font.SysFont("monsterfriendback", 50)
+    BUTTON_FONT = pygame.font.SysFont("monsterfriendback", 13)
+    # monsterfriendback
 
 
 did_player_win_or_lose = "Lose"

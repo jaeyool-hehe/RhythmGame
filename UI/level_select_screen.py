@@ -28,17 +28,17 @@ class LevelSelectScreen:
                 if self.main_btn.collidepoint(e.pos):
                     self.screen_manager.switch("main")
 
-                if self.level_1_out_line_button.collidepoint(e.pos):
+                if self.level_1_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 1:
                     Variables.selected_level = 1
-                if self.level_2_out_line_button.collidepoint(e.pos):
+                if self.level_2_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 2:
                     Variables.selected_level = 2
-                if self.level_3_out_line_button.collidepoint(e.pos):
+                if self.level_3_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 3:
                     Variables.selected_level = 3
 
-                if self.level_4_out_line_button.collidepoint(e.pos):
+                if self.level_4_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 4:
                     Variables.selected_level = 4
 
-                if self.level_5_out_line_button.collidepoint(e.pos):
+                if self.level_5_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 5:
                     Variables.selected_level = 5
 
                 if self.continue_button.collidepoint(e.pos) and Variables.selected_level:
@@ -54,12 +54,17 @@ class LevelSelectScreen:
         pygame.draw.rect(screen, Variables.WHITE, self.main_btn, border_radius=20, width=2)
         pygame.draw.rect(screen, Variables.WHITE, self.continue_button, border_radius=20, width=2)
 
-        # TODO MAKE IT SO YOU CAN'T SELECT GRAYED OUT BUTTONS
+        # TODO
+        #  MAKE IT SO YOU CAN'T SELECT GRAYED OUT BUTTONS
+
         def get_level_color(level):
-            if Variables.selected_level == level:
+            # if the level is selected and unlocked
+            if Variables.selected_level == level and Variables.unlocked_until_this_level >= level:
                 return Variables.RED
+            # elif the level is unlocked
             elif Variables.unlocked_until_this_level >= level:
                 return Variables.WHITE
+            # else (level is not unlocked yet)
             else:
                 return Variables.GRAY
 
@@ -80,8 +85,8 @@ class LevelSelectScreen:
         screen.blit(Variables.BUTTON_FONT.render("Continue", True, Variables.WHITE), (self.continue_button.x + 19, self.continue_button.y + 15))
 
         screen.blit(Variables.LOGO_FONT.render("Select Level", True, Variables.WHITE), (450, 100))
-        screen.blit(Variables.BUTTON_FONT.render("Level 1", True, self.level_1_button_color), (237, 215))
-        screen.blit(Variables.BUTTON_FONT.render("Level 2", True, self.level_2_button_color), (237, 315))
-        screen.blit(Variables.BUTTON_FONT.render("Level 3", True, self.level_3_button_color), (237, 415))
-        screen.blit(Variables.BUTTON_FONT.render("Level 4", True, self.level_4_button_color), (237, 515))
-        screen.blit(Variables.BUTTON_FONT.render("Level 5", True, self.level_5_button_color), (237, 615))
+        screen.blit(Variables.BUTTON_FONT.render("Level 1", True, color1), (237, 215))
+        screen.blit(Variables.BUTTON_FONT.render("Level 2", True, color2), (237, 315))
+        screen.blit(Variables.BUTTON_FONT.render("Level 3", True, color3), (237, 415))
+        screen.blit(Variables.BUTTON_FONT.render("Level 4", True, color4), (237, 515))
+        screen.blit(Variables.BUTTON_FONT.render("Level 5", True, color5), (237, 615))

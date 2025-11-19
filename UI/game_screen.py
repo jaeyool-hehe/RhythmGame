@@ -36,14 +36,16 @@ class GameScreen:
                     self.screen_manager.switch("pause")
 
     def draw(self, screen):
+        # Filling the screen black
         screen.fill(Variables.BLACK)
 
+        # Drawing btn
         pygame.draw.rect(screen, Variables.WHITE, self.main_btn, border_radius=20, width=2)
         pygame.draw.rect(screen, Variables.WHITE, self.victory_btn, border_radius=20, width=2)
         pygame.draw.rect(screen, Variables.WHITE, self.game_over_btn, border_radius=20, width=2)
         pygame.draw.rect(screen, Variables.WHITE, self.pause_btn, border_radius=20, width=2)
 
-
+        # Managing level txt
         if Variables.selected_level == 1:
             screen.blit(Variables.LOGO_FONT.render("Level 1", True, Variables.WHITE), (450, 100))
         if Variables.selected_level == 2:
@@ -55,7 +57,8 @@ class GameScreen:
         if Variables.selected_level == 5:
             screen.blit(Variables.LOGO_FONT.render("Level 5", True, Variables.WHITE), (450, 100))
 
-        screen.blit(Variables.BUTTON_FONT.render(" ll pause", True, Variables.WHITE), (self.pause_btn.x + 19, self.pause_btn.y + 15))
+        # Displaying txt
+        screen.blit(Variables.BUTTON_FONT.render("II Pause", True, Variables.WHITE), (self.pause_btn.x + 19, self.pause_btn.y + 15))
         screen.blit(Variables.BUTTON_FONT.render("Win", True, Variables.WHITE), (self.victory_btn.x + 19, self.victory_btn.y + 15))
         screen.blit(Variables.BUTTON_FONT.render("Lose", True, Variables.WHITE), (self.game_over_btn.x + 19, self.game_over_btn.y + 15))
         screen.blit(Variables.BUTTON_FONT.render("Back", True, Variables.WHITE), (self.main_btn.x + 19, self.main_btn.y + 15))
