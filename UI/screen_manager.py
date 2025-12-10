@@ -24,8 +24,6 @@ class ScreenManager:
             self.level_select.level_3_button_color = Variables.WHITE
             self.level_select.level_4_button_color = Variables.WHITE
             self.level_select.level_5_button_color = Variables.WHITE
-
-
             self.current = self.level_select
         elif name == "main":
             self.current = self.main

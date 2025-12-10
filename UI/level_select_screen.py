@@ -1,5 +1,7 @@
 import pygame
 import Variables
+import game_screen
+
 
 
 class LevelSelectScreen:
@@ -30,16 +32,23 @@ class LevelSelectScreen:
 
                 if self.level_1_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 1:
                     Variables.selected_level = 1
+                    game_screen.GameScreen.set_up_health()
+
                 if self.level_2_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 2:
                     Variables.selected_level = 2
+                    game_screen.GameScreen.set_up_health()
+
                 if self.level_3_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 3:
                     Variables.selected_level = 3
+                    game_screen.GameScreen.set_up_health()
 
                 if self.level_4_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 4:
                     Variables.selected_level = 4
+                    game_screen.GameScreen.set_up_health()
 
                 if self.level_5_out_line_button.collidepoint(e.pos) and Variables.unlocked_until_this_level >= 5:
                     Variables.selected_level = 5
+                    game_screen.GameScreen.set_up_health()
 
                 if self.continue_button.collidepoint(e.pos) and Variables.selected_level:
                     self.screen_manager.switch("game")

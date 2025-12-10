@@ -5,6 +5,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (168, 168, 168)
 RED = (255, 0, 0)
+YELLOW = (244, 252, 3)
 
 
 
@@ -28,4 +29,4 @@ def initFonts():
 
 did_player_win_or_lose = "Lose"
 selected_level = None
-unlocked_until_this_level = 1
+unlocked_until_this_level = 5
