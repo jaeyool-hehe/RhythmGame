@@ -25,8 +25,3 @@ def initFonts():
     LOGO_FONT = pygame.font.SysFont("monsterfriendback", 50)
     BUTTON_FONT = pygame.font.SysFont("monsterfriendback", 13)
     # monsterfriendback
-
-
-did_player_win_or_lose = "Lose"
-selected_level = None
-unlocked_until_this_level = 5

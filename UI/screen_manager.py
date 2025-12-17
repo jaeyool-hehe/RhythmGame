@@ -1,18 +1,20 @@
 import Variables
-from UI.main_menu_screen import MainMenu
-from UI.game_screen import GameScreen
-from UI.level_select_screen import LevelSelectScreen
-from UI.victory_or_lose_screen import VictoryOrLoseScreen
-from UI.pause_screen import PauseScreen
+import UI.main_menu_screen
+import UI.game_screen
+import UI.level_select_screen
+import UI.victory_or_lose_screen
+import UI.pause_screen
+
 
 class ScreenManager:
-    def __init__(self):
+    def __init__(self, state):
+        self.state = state
         # Compose the sub-menus
-        self.main = MainMenu(self)
-        self.game = GameScreen(self)
-        self.level_select = LevelSelectScreen(self)
-        self.victory_or_lose = VictoryOrLoseScreen(self)
-        self.pause = PauseScreen(self)
+        self.main = UI.main_menu_screen.MainMenu(self)
+        self.game = UI.game_screen.GameScreen(self)
+        self.level_select = UI.level_select_screen.LevelSelectScreen(self)
+        self.victory_or_lose = UI.victory_or_lose_screen.VictoryOrLoseScreen(self)
+        self.pause = UI.pause_screen.PauseScreen(self)
         self.current = self.main
 
 
@@ -29,7 +31,7 @@ class ScreenManager:
             self.current = self.main
         elif name == "game":
             self.current = self.game
-        elif name == "Ending":
+        elif name == "ending":
             self.current = self.victory_or_lose
         elif name == "pause":
             self.current = self.pause

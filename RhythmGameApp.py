@@ -1,8 +1,8 @@
 import pygame, sys
 
 import Variables
-from UI.screen_manager import ScreenManager
-
+import UI.screen_manager
+import logic.game_state
 
 pygame.init()
 Variables.initFonts()
@@ -13,7 +13,8 @@ screen = pygame.display.set_mode((1200, 800))
 clock = pygame.time.Clock()
 
 # Create MenuBase (composition)
-screen_manager = ScreenManager()
+state = logic.game_state.GameState()
+screen_manager = UI.screen_manager.ScreenManager(state)
 
 
 
