@@ -22,6 +22,12 @@ def initFonts():
     # LOGO_FONT = pygame.font.SysFont("deltarune", 75)
     # BUTTON_FONT = pygame.font.SysFont("deltarune", 20)
 
-    LOGO_FONT = pygame.font.SysFont("monsterfriendback", 50)
-    BUTTON_FONT = pygame.font.SysFont("monsterfriendback", 13)
+
+    # LOGO_FONT = pygame.font.SysFont("monsterfriendback", 50)
+    # BUTTON_FONT = pygame.font.SysFont("monsterfriendback", 13)
     # monsterfriendback
+
+    # https://www.dafont.com/monster-friend-fore.font
+    LOGO_FONT = pygame.font.Font("assets/fonts/MonsterFriendFore.otf", 50)
+    BUTTON_FONT = pygame.font.Font("assets/fonts/MonsterFriendFore.otf", 13)
+
