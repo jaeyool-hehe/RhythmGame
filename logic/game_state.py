@@ -1,11 +1,4 @@
 class GameState:
-    BOSS_MAX_HEALTH = {
-        1: 200,
-        2: 400,
-        3: 600,
-        4: 800,
-        5: 1000,
-    }
 
     def __init__(self):
         self.selected_level = 1

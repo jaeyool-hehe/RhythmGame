@@ -1,7 +1,7 @@
 import sys
 import pygame
-import Variables
-
+import colors
+import fonts
 
 class MainMenu:
    def __init__(self, screen_manager):
@@ -22,10 +22,10 @@ class MainMenu:
 
 
    def draw(self, screen):
-       screen.fill(Variables.BLACK)
-       txt = Variables.LOGO_FONT.render("PULSEBOUND", True, Variables.WHITE)
+       screen.fill(colors.BLACK)
+       txt = fonts.LOGO_FONT.render("PULSEBOUND", True, colors.WHITE)
        screen.blit(txt, (400, 100))
-       pygame.draw.rect(screen, Variables.WHITE, self.play_btn, border_radius=20, width=2)
-       pygame.draw.rect(screen, Variables.WHITE, self.exit_btn, border_radius=20, width=2)
-       screen.blit(Variables.BUTTON_FONT.render("Play", True, Variables.WHITE), (self.play_btn.x + 23.5, self.play_btn.y + 15))
-       screen.blit(Variables.BUTTON_FONT.render("Exit", True, Variables.WHITE), (self.exit_btn.x + 25.75, self.exit_btn.y + 15))
+       pygame.draw.rect(screen, colors.WHITE, self.play_btn, border_radius=20, width=2)
+       pygame.draw.rect(screen, colors.WHITE, self.exit_btn, border_radius=20, width=2)
+       screen.blit(fonts.BUTTON_FONT.render("Play", True, colors.WHITE), (self.play_btn.x + 23.5, self.play_btn.y + 15))
+       screen.blit(fonts.BUTTON_FONT.render("Exit", True, colors.WHITE), (self.exit_btn.x + 25.75, self.exit_btn.y + 15))

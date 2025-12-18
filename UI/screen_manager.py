@@ -1,4 +1,4 @@
-import Variables
+import colors
 import UI.main_menu_screen
 import UI.game_screen
 import UI.level_select_screen
@@ -20,12 +20,12 @@ class ScreenManager:
 
     def switch(self, name):
         if name == "level":
-            Variables.selected_level = None
-            self.level_select.level_1_button_color = Variables.WHITE
-            self.level_select.level_2_button_color = Variables.WHITE
-            self.level_select.level_3_button_color = Variables.WHITE
-            self.level_select.level_4_button_color = Variables.WHITE
-            self.level_select.level_5_button_color = Variables.WHITE
+            colors.selected_level = None
+            self.level_select.level_1_button_color = colors.WHITE
+            self.level_select.level_2_button_color = colors.WHITE
+            self.level_select.level_3_button_color = colors.WHITE
+            self.level_select.level_4_button_color = colors.WHITE
+            self.level_select.level_5_button_color = colors.WHITE
             self.current = self.level_select
         elif name == "main":
             self.current = self.main

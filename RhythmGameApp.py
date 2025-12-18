@@ -1,11 +1,14 @@
 import pygame, sys
 
-import Variables
 import UI.screen_manager
 import logic.game_state
+import fonts
+import images
 
 pygame.init()
-Variables.initFonts()
+fonts.initFonts()
+images.load_boss_images()
+images.load_player_images()
 
 
 print(pygame.font.get_fonts())

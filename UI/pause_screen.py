@@ -1,6 +1,6 @@
 import pygame
-import Variables
-
+import colors
+import fonts
 
 class PauseScreen:
     def __init__(self, screen_manager):
@@ -19,9 +19,9 @@ class PauseScreen:
                     self.screen_manager.switch("game")
 
     def draw(self, screen):
-        screen.fill(Variables.BLACK)
+        screen.fill(colors.BLACK)
 
-        pygame.draw.rect(screen, Variables.WHITE, self.go_back_btn, border_radius=20, width=2)
+        pygame.draw.rect(screen, colors.WHITE, self.go_back_btn, border_radius=20, width=2)
 
-        screen.blit(Variables.LOGO_FONT.render("Paused", True, Variables.WHITE), (450, 100))
-        screen.blit(Variables.BUTTON_FONT.render("Go back", True, Variables.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))
+        screen.blit(fonts.LOGO_FONT.render("Paused", True, colors.WHITE), (450, 100))
+        screen.blit(colors.fonts.BUTTON_FONT.render("Go back", True, colors.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))

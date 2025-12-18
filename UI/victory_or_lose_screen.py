@@ -1,9 +1,7 @@
-import sys
-
 import pygame
-import Variables
+import colors
 import logic.game_state
-
+import fonts
 
 class VictoryOrLoseScreen:
     def __init__(self, screen_manager):
@@ -29,14 +27,14 @@ class VictoryOrLoseScreen:
             self._applied = True
 
     def draw(self, screen):
-        screen.fill(Variables.BLACK)
+        screen.fill(colors.BLACK)
 
-        text = "Victory" if self.state.result == "Win" else "Gameover"
-        txt = Variables.LOGO_FONT.render(text, True, Variables.WHITE)
+        text = "Victory" if self.state.result == "Win" else "Game over"
+        txt = fonts.LOGO_FONT.render(text, True, colors.WHITE)
         screen.blit(txt, (500, 100))
 
-        pygame.draw.rect(screen, Variables.WHITE, self.go_back_btn, border_radius=20, width=2)
+        pygame.draw.rect(screen, colors.WHITE, self.go_back_btn, border_radius=20, width=2)
         screen.blit(
-            Variables.BUTTON_FONT.render("Back", True, Variables.WHITE),
+            fonts.BUTTON_FONT.render("Back", True, colors.WHITE),
             (self.go_back_btn.x + 23.5, self.go_back_btn.y + 15),
         )
