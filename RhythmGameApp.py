@@ -5,6 +5,13 @@ import logic.game_state
 import fonts
 import images
 
+
+import messages
+import random
+print(random.choice(messages.boss_messages["GeneralFrog"]["Initial"]))
+
+
+
 pygame.init()
 fonts.initFonts()
 images.load_boss_images()
