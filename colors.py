@@ -3,5 +3,3 @@ BLACK = (0, 0, 0)
 GRAY = (168, 168, 168)
 HEALTH_BAR_BG = (255, 0, 0)
 CURRENT_HEALTH = (244, 252, 3)
-
-

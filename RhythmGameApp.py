@@ -19,8 +19,6 @@ clock = pygame.time.Clock()
 state = logic.game_state.GameState()
 screen_manager = UI.screen_manager.ScreenManager(state)
 
-
-
 # Main loop
 while True:
     events = pygame.event.get()

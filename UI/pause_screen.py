@@ -24,4 +24,4 @@ class PauseScreen:
         pygame.draw.rect(screen, colors.WHITE, self.go_back_btn, border_radius=20, width=2)
 
         screen.blit(fonts.LOGO_FONT.render("Paused", True, colors.WHITE), (450, 100))
-        screen.blit(colors.fonts.BUTTON_FONT.render("Go back", True, colors.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))
+        screen.blit(fonts.BUTTON_FONT.render("Go back", True, colors.WHITE), (self.go_back_btn.x + 14, self.go_back_btn.x + 15))
